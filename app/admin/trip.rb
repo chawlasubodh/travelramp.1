@@ -1,4 +1,5 @@
 ActiveAdmin.register Trip do
+  permit_params :origin, :dest, :leave_on, :return_on, :travel_type, :num_passengers
 
 
   # See permitted parameters documentation:
