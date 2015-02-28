@@ -1,16 +1,46 @@
-<%= simple_form_for(@trip) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.input :origin %>
-    <%= f.input :dest %>
-    <%= f.input :leave_on %>
-    <%= f.input :return_on %>
-    <%= f.input :travel_type %>
-    <%= f.input :num_passengers %>
+<%= form_for @trip, :html => { :class => 'form-horizontal form-model' } do |f| %>
+  <div class="form-group">
+    <%= f.label :origin, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :origin, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :dest, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :dest, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :leave_on, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.date_select :leave_on, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :return_on, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.date_select :return_on, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :travel_type, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :travel_type, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :num_passengers, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.number_field :num_passengers, :class => 'text-field form-control' %>
+    </div>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
+  <div class="form-group">
+    <div class='col-md-offset-2 col-md-10'>
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                  trips_path, :class => 'btn btn-default' %>
+    </div>
   </div>
 <% end %>
